@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "cyclocalc"
+version = "0.1.0"
+description = "A program that analyzes source code ASTs to measure cyclomatic complexity and generate security metrics highlighting areas susceptible to vulnerabilities."
+authors = ["Przemysław Włodarczyk <przemyslaw.wlodarczyk@intmail.pl>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.6"
+typer = "^0.12.5"
+
+[tool.poetry.scripts]
+cyclocalc = "cyclocalc.cli:app"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pre-commit = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
