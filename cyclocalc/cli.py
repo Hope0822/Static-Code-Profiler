@@ -145,6 +145,9 @@ def analyze(
     threshold: int = typer.Option(
         1, "-t", "--threshold", help="Minimum cyclomatic complexity to report"
     ),
+    output: str = typer.Option(
+        None, "-o", "--output", help="File path to save the results instead of printing"
+    ),
 ):
     """
     Analyze cyclomatic complexity of Python functions/methods in files or directories.
@@ -155,6 +158,8 @@ def analyze(
         typer.secho(f"Error: {e}", fg=typer.colors.RED, err=True)
         raise typer.Exit(code=1)
 
+    results = []
+
     for file_path in files:
         try:
             tree = parse_source_to_ast(file_path)
@@ -162,7 +167,7 @@ def analyze(
             for func_name, func_node in functions:
                 complexity = calculate_cyclomatic_complexity(func_node)
                 if complexity >= threshold:
-                    typer.echo(
+                    results.append(
                         f"{file_path}: Function '{func_name}' has cyclomatic complexity {complexity}"
                     )
         except (SyntaxError, UnicodeDecodeError) as e:
@@ -175,3 +180,17 @@ def analyze(
             typer.secho(
                 f"Error processing {file_path}: {e}", fg=typer.colors.RED, err=True
             )
+
+    if output:
+        try:
+            with open(output, "w", encoding="utf-8") as f:
+                f.write("\n".join(results))
+            typer.secho(f"Results saved to {output}", fg=typer.colors.GREEN)
+        except Exception as e:
+            typer.secho(
+                f"Failed to write to {output}: {e}", fg=typer.colors.RED, err=True
+            )
+            raise typer.Exit(code=1)
+    else:
+        for line in results:
+            typer.echo(line)
