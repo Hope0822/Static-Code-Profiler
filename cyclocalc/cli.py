@@ -1,5 +1,5 @@
 import ast
-import os
+from pathlib import Path
 from typing import List, Tuple
 
 import typer
@@ -11,27 +11,34 @@ app = typer.Typer(
 
 def get_python_files(path: str) -> List[str]:
     """
-    Given a path to a file or directory, return list of all Python files.
+    Given a path to a file or directory, return a list of all Python files.
 
     Args:
         path (str): File or directory path.
 
     Returns:
         List[str]: List of Python file paths.
+
+    Raises:
+        FileNotFoundError: If the path is neither a file nor a directory,
+            or if no Python files are found in the directory.
     """
-    python_files = []
-    if os.path.isfile(path) and path.endswith(".py"):
-        python_files.append(path)
-    elif os.path.isdir(path):
-        for root, _, files in os.walk(path):
-            for file in files:
-                if file.endswith(".py"):
-                    python_files.append(os.path.join(root, file))
-    else:
-        raise FileNotFoundError(
-            f"Path '{path}' is not a file or directory or contains no Python files."
-        )
-    return python_files
+    p = Path(path)
+
+    if p.is_file():
+        if p.suffix == ".py":
+            return [str(p)]
+        else:
+            raise FileNotFoundError(f"File '{path}' is not a Python file.")
+
+    if p.is_dir():
+        python_files = [str(f) for f in p.rglob("*.py")]
+        if python_files:
+            return python_files
+        else:
+            raise FileNotFoundError(f"No Python files found in directory '{path}'.")
+
+    raise FileNotFoundError(f"Path '{path}' is not a file or directory.")
 
 
 def parse_source_to_ast(file_path: str) -> ast.AST:
