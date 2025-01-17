@@ -141,7 +141,9 @@ def calculate_cyclomatic_complexity(func_node: ast.AST) -> int:
 
 @app.command()
 def analyze(
-    path: str = typer.Argument(..., help="Python source file or directory to analyze"),
+    paths: List[str] = typer.Argument(
+        ..., help="One or more Python source files or directories to analyze"
+    ),
     threshold: int = typer.Option(
         1, "-t", "--threshold", help="Minimum cyclomatic complexity to report"
     ),
@@ -151,16 +153,20 @@ def analyze(
 ):
     """
     Analyze cyclomatic complexity of Python functions/methods in files or directories.
+    Supports multiple input paths.
     """
-    try:
-        files = get_python_files(path)
-    except Exception as e:
-        typer.secho(f"Error: {e}", fg=typer.colors.RED, err=True)
-        raise typer.Exit(code=1)
+    all_files = []
+    for path in paths:
+        try:
+            files = get_python_files(path)
+            all_files.extend(files)
+        except Exception as e:
+            typer.secho(f"Error accessing {path}: {e}", fg=typer.colors.RED, err=True)
+            raise typer.Exit(code=1)
 
     results = []
 
-    for file_path in files:
+    for file_path in all_files:
         try:
             tree = parse_source_to_ast(file_path)
             functions = list_functions(tree)
