@@ -51,24 +51,40 @@ def parse_source_to_ast(file_path: str) -> ast.AST:
 
 def list_functions(tree: ast.AST) -> List[Tuple[str, ast.AST]]:
     """
-    List all function and method definitions in the AST.
+    List all function and method definitions in the AST with their full names,
+    including parent classes and enclosing functions.
 
     Args:
         tree (ast.AST): AST tree of a Python source file.
 
     Returns:
-        List[Tuple[str, ast.AST]]: List of tuples (function_name, function_node).
+        List[Tuple[str, ast.AST]]: List of tuples (full_function_name, function_node).
     """
-    functions: List[Tuple[str, ast.AST]] = []
+    functions: list[tuple[str, ast.AST]] = []
+    scope_stack: List[str] = []
 
     class FunctionVisitor(ast.NodeVisitor):
-        def visit_FunctionDef(self, node: ast.FunctionDef):
-            functions.append((node.name, node))
+        def visit_ClassDef(self, node: ast.ClassDef):
+            # Push class name onto scope stack
+            scope_stack.append(node.name)
             self.generic_visit(node)
+            scope_stack.pop()
+
+        def visit_FunctionDef(self, node: ast.FunctionDef):
+            # Push function name onto scope stack
+            scope_stack.append(node.name)
+            full_name = ".".join(scope_stack)
+            functions.append((full_name, node))
+            self.generic_visit(node)
+            scope_stack.pop()
 
         def visit_AsyncFunctionDef(self, node: ast.AsyncFunctionDef):
-            functions.append((node.name, node))
+            # Push async function name onto scope stack
+            scope_stack.append(node.name)
+            full_name = ".".join(scope_stack)
+            functions.append((full_name, node))
             self.generic_visit(node)
+            scope_stack.pop()
 
     FunctionVisitor().visit(tree)
     return functions
