@@ -1,6 +1,6 @@
 import ast
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Optional, Tuple
 
 import typer
 
@@ -139,21 +139,15 @@ def calculate_cyclomatic_complexity(func_node: ast.AST) -> int:
     return complexity
 
 
-@app.command()
-def analyze(
-    paths: List[str] = typer.Argument(
-        ..., help="One or more Python source files or directories to analyze"
-    ),
-    threshold: int = typer.Option(
-        1, "-t", "--threshold", help="Minimum cyclomatic complexity to report"
-    ),
-    output: str = typer.Option(
-        None, "-o", "--output", help="File path to save the results instead of printing"
-    ),
-):
+def collect_python_files(paths: List[str]) -> List[str]:
     """
-    Analyze cyclomatic complexity of Python functions/methods in files or directories.
-    Supports multiple input paths.
+    Collect all Python files from the given list of paths.
+
+    Args:
+        paths (List[str]): List of file or directory paths.
+
+    Returns:
+        List[str]: List of Python file paths.
     """
     all_files = []
     for path in paths:
@@ -163,7 +157,20 @@ def analyze(
         except Exception as e:
             typer.secho(f"Error accessing {path}: {e}", fg=typer.colors.RED, err=True)
             raise typer.Exit(code=1)
+    return all_files
 
+
+def generate_results(all_files: List[str], threshold: int) -> List[str]:
+    """
+    Generate a list of cyclomatic complexity results for the given files.
+
+    Args:
+        all_files (List[str]): List of Python source file paths to analyze.
+        threshold (int): Minimum cyclomatic complexity to report.
+
+    Returns:
+        List[str]: List of formatted result strings.
+    """
     results = []
 
     for file_path in all_files:
@@ -186,7 +193,17 @@ def analyze(
             typer.secho(
                 f"Error processing {file_path}: {e}", fg=typer.colors.RED, err=True
             )
+    return results
 
+
+def output_results(results: List[str], output: Optional[str]) -> None:
+    """
+    Output the results either by printing to console or writing to a file.
+
+    Args:
+        results (List[str]): List of result strings to output.
+        output (Optional[str]): File path to write results to, or None to print.
+    """
     if output:
         try:
             with open(output, "w", encoding="utf-8") as f:
@@ -200,3 +217,24 @@ def analyze(
     else:
         for line in results:
             typer.echo(line)
+
+
+@app.command()
+def analyze(
+    paths: List[str] = typer.Argument(
+        ..., help="One or more Python source files or directories to analyze"
+    ),
+    threshold: int = typer.Option(
+        1, "-t", "--threshold", help="Minimum cyclomatic complexity to report"
+    ),
+    output: Optional[str] = typer.Option(
+        None, "-o", "--output", help="File path to save the results instead of printing"
+    ),
+):
+    """
+    Analyze cyclomatic complexity of Python functions/methods in files or directories.
+    Supports multiple input paths.
+    """
+    all_files = collect_python_files(paths)
+    results = generate_results(all_files, threshold)
+    output_results(results, output)
