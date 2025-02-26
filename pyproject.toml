@@ -4,6 +4,11 @@ version = "0.1.0"
 description = "A program that analyzes source code ASTs to measure cyclomatic complexity and generate security metrics highlighting areas susceptible to vulnerabilities."
 authors = ["Przemysław Włodarczyk <przemyslaw.wlodarczyk@intmail.pl>"]
 readme = "README.md"
+license = "GPL-2.0-only"
+homepage = "https://github.com/pewiok/cyclocalc"
+repository = "https://github.com/pewiok/cyclocalc"
+documentation = "https://github.com/pewiok/cyclocalc#readme"
+keywords = ["cli", "tool", "cyclomatic", "complexity"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
