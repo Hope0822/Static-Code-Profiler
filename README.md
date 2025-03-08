@@ -45,6 +45,7 @@ output to `complexity_report.txt`.
 The project uses Poetry for dependency management and packaging. To set up a development environment:
 
 ```bash
+eval $(poetry env activate)
 poetry install
 ```
 
@@ -52,6 +53,12 @@ Run tests with:
 
 ```bash
 poetry run pytest
+```
+
+Test the package installation with:
+
+```bash
+pipx run --no-cache --spec . cyclocalc --help
 ```
 
 ## Credits

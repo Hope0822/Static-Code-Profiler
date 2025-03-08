@@ -310,14 +310,14 @@ rapidfuzz = ">=3.0.0,<4.0.0"
 
 [[package]]
 name = "click"
-version = "8.1.7"
+version = "8.2.1"
 description = "Composable command line interface toolkit"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "click-8.1.7-py3-none-any.whl", hash = "sha256:ae74fb96c20a0277a1d615f1e4d73c8414f5a98db8b799a7931d1582f3390c28"},
-    {file = "click-8.1.7.tar.gz", hash = "sha256:ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"},
+    {file = "click-8.2.1-py3-none-any.whl", hash = "sha256:61a3265b914e850b85317d0b3109c7f8cd35a670f963866005d6ef1d5175a12b"},
+    {file = "click-8.2.1.tar.gz", hash = "sha256:27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"},
 ]
 
 [package.dependencies]
@@ -505,19 +505,19 @@ devel = ["colorama", "json-spec", "jsonschema", "pylint", "pytest", "pytest-benc
 
 [[package]]
 name = "filelock"
-version = "3.16.1"
+version = "3.18.0"
 description = "A platform independent file lock."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "filelock-3.16.1-py3-none-any.whl", hash = "sha256:2082e5703d51fbf98ea75855d9d5527e33d8ff23099bec374a134febee6946b0"},
-    {file = "filelock-3.16.1.tar.gz", hash = "sha256:c249fbfcd5db47e5e2d6d62198e565475ee65e4831e2561c8e313fa7eb961435"},
+    {file = "filelock-3.18.0-py3-none-any.whl", hash = "sha256:c401f4f8377c4464e6db25fff06205fd89bdd83b65eb0488ed1b160f780e21de"},
+    {file = "filelock-3.18.0.tar.gz", hash = "sha256:adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2"},
 ]
 
 [package.extras]
-docs = ["furo (>=2024.8.6)", "sphinx (>=8.0.2)", "sphinx-autodoc-typehints (>=2.4.1)"]
-testing = ["covdefaults (>=2.3)", "coverage (>=7.6.1)", "diff-cover (>=9.2)", "pytest (>=8.3.3)", "pytest-asyncio (>=0.24)", "pytest-cov (>=5)", "pytest-mock (>=3.14)", "pytest-timeout (>=2.3.1)", "virtualenv (>=20.26.4)"]
+docs = ["furo (>=2024.8.6)", "sphinx (>=8.1.3)", "sphinx-autodoc-typehints (>=3)"]
+testing = ["covdefaults (>=2.3)", "coverage (>=7.6.10)", "diff-cover (>=9.2.1)", "pytest (>=8.3.4)", "pytest-asyncio (>=0.25.2)", "pytest-cov (>=6)", "pytest-mock (>=3.14)", "pytest-timeout (>=2.3.1)", "virtualenv (>=20.28.1)"]
 typing = ["typing-extensions (>=4.12.2) ; python_version < \"3.11\""]
 
 [[package]]
@@ -596,14 +596,14 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "identify"
-version = "2.6.1"
+version = "2.6.12"
 description = "File identification library for Python"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "identify-2.6.1-py2.py3-none-any.whl", hash = "sha256:53863bcac7caf8d2ed85bd20312ea5dcfc22226800f6d6881f232d861db5a8f0"},
-    {file = "identify-2.6.1.tar.gz", hash = "sha256:91478c5fb7c3aac5ff7bf9b4344f803843dc586832d5f110d672b19aa1984c98"},
+    {file = "identify-2.6.12-py2.py3-none-any.whl", hash = "sha256:ad9672d5a72e0d2ff7c5c8809b62dfa60458626352fb0eb7b55e69bdc45334a2"},
+    {file = "identify-2.6.12.tar.gz", hash = "sha256:d8de45749f1efb108badef65ee8386f0f7bb19a7f26185f74de6367bffbaf0e6"},
 ]
 
 [package.extras]
@@ -651,14 +651,14 @@ type = ["pytest-mypy"]
 
 [[package]]
 name = "iniconfig"
-version = "2.0.0"
+version = "2.1.0"
 description = "brain-dead simple config-ini parsing"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "iniconfig-2.0.0-py3-none-any.whl", hash = "sha256:b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374"},
-    {file = "iniconfig-2.0.0.tar.gz", hash = "sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3"},
+    {file = "iniconfig-2.1.0-py3-none-any.whl", hash = "sha256:9deba5723312380e77435581c6bf4935c94cbfab9b1ed33ef8d238ea168eb760"},
+    {file = "iniconfig-2.1.0.tar.gz", hash = "sha256:3abbd2e30b36733fee78f9c7f7308f2d0050e88f0087fd25c2645f63c773e1c7"},
 ]
 
 [[package]]
@@ -913,14 +913,14 @@ files = [
 
 [[package]]
 name = "packaging"
-version = "24.1"
+version = "25.0"
 description = "Core utilities for Python packages"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "packaging-24.1-py3-none-any.whl", hash = "sha256:5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124"},
-    {file = "packaging-24.1.tar.gz", hash = "sha256:026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"},
+    {file = "packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484"},
+    {file = "packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f"},
 ]
 
 [[package]]
@@ -961,36 +961,36 @@ testing = ["pytest", "pytest-cov", "wheel"]
 
 [[package]]
 name = "platformdirs"
-version = "4.3.6"
+version = "4.3.8"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a `user data dir`."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "platformdirs-4.3.6-py3-none-any.whl", hash = "sha256:73e575e1408ab8103900836b97580d5307456908a03e92031bab39e4554cc3fb"},
-    {file = "platformdirs-4.3.6.tar.gz", hash = "sha256:357fb2acbc885b0419afd3ce3ed34564c13c9b95c89360cd9563f73aa5e2b907"},
+    {file = "platformdirs-4.3.8-py3-none-any.whl", hash = "sha256:ff7059bb7eb1179e2685604f4aaf157cfd9535242bd23742eadc3c13542139b4"},
+    {file = "platformdirs-4.3.8.tar.gz", hash = "sha256:3d512d96e16bcb959a814c9f348431070822a6496326a4be0911c40b5a74c2bc"},
 ]
 
 [package.extras]
-docs = ["furo (>=2024.8.6)", "proselint (>=0.14)", "sphinx (>=8.0.2)", "sphinx-autodoc-typehints (>=2.4)"]
-test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=8.3.2)", "pytest-cov (>=5)", "pytest-mock (>=3.14)"]
-type = ["mypy (>=1.11.2)"]
+docs = ["furo (>=2024.8.6)", "proselint (>=0.14)", "sphinx (>=8.1.3)", "sphinx-autodoc-typehints (>=3)"]
+test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=8.3.4)", "pytest-cov (>=6)", "pytest-mock (>=3.14)"]
+type = ["mypy (>=1.14.1)"]
 
 [[package]]
 name = "pluggy"
-version = "1.5.0"
+version = "1.6.0"
 description = "plugin and hook calling mechanisms for python"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "pluggy-1.5.0-py3-none-any.whl", hash = "sha256:44e1ad92c8ca002de6377e165f3e0f1be63266ab4d554740532335b9d75ea669"},
-    {file = "pluggy-1.5.0.tar.gz", hash = "sha256:2cffa88e94fdc978c4c574f15f9e59b7f4201d439195c3715ca9e2486f1d0cf1"},
+    {file = "pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"},
+    {file = "pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3"},
 ]
 
 [package.extras]
 dev = ["pre-commit", "tox"]
-testing = ["pytest", "pytest-benchmark"]
+testing = ["coverage", "pytest", "pytest-benchmark"]
 
 [[package]]
 name = "poetry"
@@ -1057,14 +1057,14 @@ poetry-core = ">=1.7.0,<3.0.0"
 
 [[package]]
 name = "pre-commit"
-version = "4.0.1"
+version = "4.2.0"
 description = "A framework for managing and maintaining multi-language pre-commit hooks."
 optional = false
 python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "pre_commit-4.0.1-py2.py3-none-any.whl", hash = "sha256:efde913840816312445dc98787724647c65473daefe420785f885e8ed9a06878"},
-    {file = "pre_commit-4.0.1.tar.gz", hash = "sha256:80905ac375958c0444c65e9cebebd948b3cdb518f335a091a670a89d652139d2"},
+    {file = "pre_commit-4.2.0-py2.py3-none-any.whl", hash = "sha256:a009ca7205f1eb497d10b845e52c838a98b6cdd2102a6c8e4540e94ee75c58bd"},
+    {file = "pre_commit-4.2.0.tar.gz", hash = "sha256:601283b9757afd87d40c4c4a9b2b5de9637a8ea02eaff7adc2d0fb4e04841146"},
 ]
 
 [package.dependencies]
@@ -1089,14 +1089,14 @@ files = [
 
 [[package]]
 name = "pygments"
-version = "2.18.0"
+version = "2.19.2"
 description = "Pygments is a syntax highlighting package written in Python."
 optional = false
 python-versions = ">=3.8"
-groups = ["main"]
+groups = ["main", "dev"]
 files = [
-    {file = "pygments-2.18.0-py3-none-any.whl", hash = "sha256:b8e6aca0523f3ab76fee51799c488e38782ac06eafcf95e7ba832985c8e7b13a"},
-    {file = "pygments-2.18.0.tar.gz", hash = "sha256:786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"},
+    {file = "pygments-2.19.2-py3-none-any.whl", hash = "sha256:86540386c03d588bb81d44bc3928634ff26449851e99741617ecb9037ee5ec0b"},
+    {file = "pygments-2.19.2.tar.gz", hash = "sha256:636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"},
 ]
 
 [package.extras]
@@ -1116,24 +1116,25 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "8.3.3"
+version = "8.4.1"
 description = "pytest: simple powerful testing with Python"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["dev"]
 files = [
-    {file = "pytest-8.3.3-py3-none-any.whl", hash = "sha256:a6853c7375b2663155079443d2e45de913a911a11d669df02a50814944db57b2"},
-    {file = "pytest-8.3.3.tar.gz", hash = "sha256:70b98107bd648308a7952b06e6ca9a50bc660be218d53c257cc1fc94fda10181"},
+    {file = "pytest-8.4.1-py3-none-any.whl", hash = "sha256:539c70ba6fcead8e78eebbf1115e8b589e7565830d7d006a8723f19ac8a0afb7"},
+    {file = "pytest-8.4.1.tar.gz", hash = "sha256:7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"},
 ]
 
 [package.dependencies]
-colorama = {version = "*", markers = "sys_platform == \"win32\""}
-iniconfig = "*"
-packaging = "*"
+colorama = {version = ">=0.4", markers = "sys_platform == \"win32\""}
+iniconfig = ">=1"
+packaging = ">=20"
 pluggy = ">=1.5,<2"
+pygments = ">=2.7.2"
 
 [package.extras]
-dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
+dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "requests", "setuptools", "xmlschema"]
 
 [[package]]
 name = "pywin32-ctypes"
@@ -1357,14 +1358,14 @@ requests = ">=2.0.1,<3.0.0"
 
 [[package]]
 name = "rich"
-version = "13.9.4"
+version = "14.0.0"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 optional = false
 python-versions = ">=3.8.0"
 groups = ["main"]
 files = [
-    {file = "rich-13.9.4-py3-none-any.whl", hash = "sha256:6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90"},
-    {file = "rich-13.9.4.tar.gz", hash = "sha256:439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"},
+    {file = "rich-14.0.0-py3-none-any.whl", hash = "sha256:1c9491e1951aac09caffd42f448ee3d04e58923ffe14993f6e83068dc395d7e0"},
+    {file = "rich-14.0.0.tar.gz", hash = "sha256:82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"},
 ]
 
 [package.dependencies]
@@ -1441,14 +1442,14 @@ files = [
 
 [[package]]
 name = "typer"
-version = "0.12.5"
+version = "0.16.0"
 description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
 optional = false
 python-versions = ">=3.7"
 groups = ["main"]
 files = [
-    {file = "typer-0.12.5-py3-none-any.whl", hash = "sha256:62fe4e471711b147e3365034133904df3e235698399bc4de2b36c8579298d52b"},
-    {file = "typer-0.12.5.tar.gz", hash = "sha256:f592f089bedcc8ec1b974125d64851029c3b1af145f04aca64d69410f0c9b722"},
+    {file = "typer-0.16.0-py3-none-any.whl", hash = "sha256:1f79bed11d4d02d4310e3c1b7ba594183bcedb0ac73b27a9e5f28f6fb5b98855"},
+    {file = "typer-0.16.0.tar.gz", hash = "sha256:af377ffaee1dbe37ae9440cb4e8f11686ea5ce4e9bae01b84ae7c63b87f1dd3b"},
 ]
 
 [package.dependencies]
@@ -1459,14 +1460,14 @@ typing-extensions = ">=3.7.4.3"
 
 [[package]]
 name = "typing-extensions"
-version = "4.12.2"
-description = "Backported and Experimental Type Hints for Python 3.8+"
+version = "4.14.0"
+description = "Backported and Experimental Type Hints for Python 3.9+"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "dev"]
 files = [
-    {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
-    {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
+    {file = "typing_extensions-4.14.0-py3-none-any.whl", hash = "sha256:a1514509136dd0b477638fc68d6a91497af5076466ad0fa6c338e44e359944af"},
+    {file = "typing_extensions-4.14.0.tar.gz", hash = "sha256:8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"},
 ]
 markers = {dev = "python_version < \"3.13\""}
 
@@ -1490,14 +1491,14 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "virtualenv"
-version = "20.27.1"
+version = "20.31.2"
 description = "Virtual Python Environment builder"
 optional = false
 python-versions = ">=3.8"
 groups = ["dev"]
 files = [
-    {file = "virtualenv-20.27.1-py3-none-any.whl", hash = "sha256:f11f1b8a29525562925f745563bfd48b189450f61fb34c4f9cc79dd5aa32a1f4"},
-    {file = "virtualenv-20.27.1.tar.gz", hash = "sha256:142c6be10212543b32c6c45d3d3893dff89112cc588b7d0879ae5a1ec03a47ba"},
+    {file = "virtualenv-20.31.2-py3-none-any.whl", hash = "sha256:36efd0d9650ee985f0cad72065001e66d49a6f24eb44d98980f630686243cf11"},
+    {file = "virtualenv-20.31.2.tar.gz", hash = "sha256:e10c0a9d02835e592521be48b332b6caee6887f332c111aa79a09b9e79efc2af"},
 ]
 
 [package.dependencies]
@@ -1507,7 +1508,7 @@ platformdirs = ">=3.9.1,<5"
 
 [package.extras]
 docs = ["furo (>=2023.7.26)", "proselint (>=0.13)", "sphinx (>=7.1.2,!=7.3)", "sphinx-argparse (>=0.4)", "sphinxcontrib-towncrier (>=0.2.1a0)", "towncrier (>=23.6)"]
-test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7)", "packaging (>=23.1)", "pytest (>=7.4)", "pytest-env (>=0.8.2)", "pytest-freezer (>=0.4.8) ; platform_python_implementation == \"PyPy\" or platform_python_implementation == \"CPython\" and sys_platform == \"win32\" and python_version >= \"3.13\"", "pytest-mock (>=3.11.1)", "pytest-randomly (>=3.12)", "pytest-timeout (>=2.1)", "setuptools (>=68)", "time-machine (>=2.10) ; platform_python_implementation == \"CPython\""]
+test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7)", "packaging (>=23.1)", "pytest (>=7.4)", "pytest-env (>=0.8.2)", "pytest-freezer (>=0.4.8) ; platform_python_implementation == \"PyPy\" or platform_python_implementation == \"GraalVM\" or platform_python_implementation == \"CPython\" and sys_platform == \"win32\" and python_version >= \"3.13\"", "pytest-mock (>=3.11.1)", "pytest-randomly (>=3.12)", "pytest-timeout (>=2.1)", "setuptools (>=68)", "time-machine (>=2.10) ; platform_python_implementation == \"CPython\""]
 
 [[package]]
 name = "xattr"
@@ -1732,5 +1733,5 @@ cffi = ["cffi (>=1.11)"]
 
 [metadata]
 lock-version = "2.1"
-python-versions = "^3.11"
-content-hash = "ef9ffab8557abdf54a0c45a85850a2367c05436b99a5464535b32a94866c25c7"
+python-versions = ">=3.11,<4.0"
+content-hash = "cdaa07fa7f466ba9f5cbd0b6e2c2c1469515054f8f3702509b68d696d53d44ac"

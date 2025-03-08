@@ -1,8 +1,8 @@
-[tool.poetry]
+[project]
 name = "cyclocalc"
-version = "0.2.0"
+version = "0.2.1"
 description = "A program that analyzes source code ASTs to measure cyclomatic complexity and generate security metrics highlighting areas susceptible to vulnerabilities."
-authors = ["Przemysław Włodarczyk <przemyslaw.wlodarczyk@intmail.pl>"]
+authors = [{name = "Przemysław Włodarczyk", email = "przemyslaw.wlodarczyk@intmail.pl"}]
 readme = "README.md"
 license = "GPL-2.0-only"
 homepage = "https://github.com/pewiok/cyclocalc"
@@ -16,11 +16,11 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Security"
 ]
-
-[tool.poetry.dependencies]
-python = "^3.11"
-click = "^8.1.6"
-typer = "^0.12.5"
+requires-python = ">=3.11,<4.0"
+dependencies = [
+    "typer (>=0.16.0,<0.17.0)",
+    "click (>=8.2.1,<9.0.0)"
+]
 
 [tool.poetry.scripts]
 cyclocalc = "cyclocalc.cli:app"
