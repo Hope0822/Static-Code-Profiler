@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cyclocalc"
-version = "0.1.0"
+version = "0.2.0"
 description = "A program that analyzes source code ASTs to measure cyclomatic complexity and generate security metrics highlighting areas susceptible to vulnerabilities."
 authors = ["Przemysław Włodarczyk <przemyslaw.wlodarczyk@intmail.pl>"]
 readme = "README.md"
