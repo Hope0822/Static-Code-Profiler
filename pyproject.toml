@@ -19,7 +19,8 @@ classifiers = [
 requires-python = ">=3.11,<4.0"
 dependencies = [
     "typer (>=0.16.0,<0.17.0)",
-    "click (>=8.2.1,<9.0.0)"
+    "click (>=8.2.1,<9.0.0)",
+    "matplotlib (>=3.10.7,<4.0.0)"
 ]
 
 [tool.poetry.scripts]

@@ -1,0 +1,735 @@
+{
+  "summary": {
+    "num_files": 6,
+    "num_functions": 41,
+    "cc_avg": 4.34,
+    "cc_max": 14,
+    "len_avg": 25.78,
+    "len_max": 298,
+    "cc_dist": {
+      "1-3": 20,
+      "4-6": 11,
+      "7-10": 7,
+      "11+": 3
+    },
+    "len_dist": {
+      "1-20": 28,
+      "21-40": 7,
+      "41-60": 2,
+      "61+": 4
+    },
+    "file_metric_avg": {
+      "comment_ratio": 0.017,
+      "docstring_coverage": 0.054,
+      "long_line_ratio": 0.064,
+      "naming_issue_ratio": 0.033,
+      "unused_imports_count": 0.167
+    }
+  },
+  "functions": [
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "get_python_files",
+      "cc": 7,
+      "length": 33,
+      "nest": 3,
+      "lineno": 30
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "get_python_files._skip",
+      "cc": 1,
+      "length": 3,
+      "nest": 0,
+      "lineno": 38
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "parse_source_to_ast",
+      "cc": 2,
+      "length": 4,
+      "nest": 1,
+      "lineno": 65
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "list_functions",
+      "cc": 1,
+      "length": 26,
+      "nest": 0,
+      "lineno": 71
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "list_functions.FunctionVisitor.visit_ClassDef",
+      "cc": 1,
+      "length": 4,
+      "nest": 0,
+      "lineno": 76
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "list_functions.FunctionVisitor.visit_FunctionDef",
+      "cc": 1,
+      "length": 6,
+      "nest": 0,
+      "lineno": 81
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "list_functions.FunctionVisitor.visit_AsyncFunctionDef",
+      "cc": 1,
+      "length": 6,
+      "nest": 0,
+      "lineno": 88
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "collect_python_files",
+      "cc": 6,
+      "length": 20,
+      "nest": 2,
+      "lineno": 99
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "generate_results",
+      "cc": 7,
+      "length": 66,
+      "nest": 4,
+      "lineno": 121
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "output_results",
+      "cc": 8,
+      "length": 33,
+      "nest": 3,
+      "lineno": 189
+    },
+    {
+      "file": "cyclocalc\\cli.py",
+      "name": "analyze",
+      "cc": 6,
+      "length": 67,
+      "nest": 1,
+      "lineno": 225
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_cc",
+      "cc": 5,
+      "length": 15,
+      "nest": 3,
+      "lineno": 32
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_length",
+      "cc": 3,
+      "length": 4,
+      "nest": 1,
+      "lineno": 49
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_max_nesting",
+      "cc": 3,
+      "length": 15,
+      "nest": 2,
+      "lineno": 55
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_max_nesting.dfs",
+      "cc": 3,
+      "length": 8,
+      "nest": 2,
+      "lineno": 60
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "collect_func_metrics",
+      "cc": 1,
+      "length": 6,
+      "nest": 0,
+      "lineno": 72
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_comment_ratio",
+      "cc": 4,
+      "length": 9,
+      "nest": 2,
+      "lineno": 84
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_long_line_ratio",
+      "cc": 2,
+      "length": 6,
+      "nest": 1,
+      "lineno": 95
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "_is_snake_case",
+      "cc": 1,
+      "length": 2,
+      "nest": 0,
+      "lineno": 108
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "_is_capwords",
+      "cc": 1,
+      "length": 2,
+      "nest": 0,
+      "lineno": 112
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "check_func_and_class_names",
+      "cc": 8,
+      "length": 17,
+      "nest": 5,
+      "lineno": 116
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "check_arg_names",
+      "cc": 9,
+      "length": 18,
+      "nest": 4,
+      "lineno": 135
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "check_var_names",
+      "cc": 9,
+      "length": 16,
+      "nest": 2,
+      "lineno": 155
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "collect_naming_issues",
+      "cc": 2,
+      "length": 9,
+      "nest": 1,
+      "lineno": 173
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_docstring_coverage",
+      "cc": 6,
+      "length": 16,
+      "nest": 2,
+      "lineno": 184
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_unused_imports",
+      "cc": 11,
+      "length": 19,
+      "nest": 5,
+      "lineno": 203
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "collect_file_metrics",
+      "cc": 1,
+      "length": 15,
+      "nest": 0,
+      "lineno": 224
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "_img_to_base64",
+      "cc": 2,
+      "length": 5,
+      "nest": 1,
+      "lineno": 22
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "_cc_bucket",
+      "cc": 4,
+      "length": 8,
+      "nest": 1,
+      "lineno": 29
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "_len_bucket",
+      "cc": 4,
+      "length": 8,
+      "nest": 1,
+      "lineno": 39
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "_file_anchor",
+      "cc": 1,
+      "length": 3,
+      "nest": 0,
+      "lineno": 49
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "risk_level",
+      "cc": 12,
+      "length": 24,
+      "nest": 2,
+      "lineno": 54
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "build_summary",
+      "cc": 5,
+      "length": 34,
+      "nest": 2,
+      "lineno": 80
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "detect_smells",
+      "cc": 14,
+      "length": 49,
+      "nest": 3,
+      "lineno": 116
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "build_file_risk_ranking",
+      "cc": 7,
+      "length": 52,
+      "nest": 2,
+      "lineno": 167
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "generate_html_report",
+      "cc": 2,
+      "length": 298,
+      "nest": 1,
+      "lineno": 221
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "generate_html_report.img_block",
+      "cc": 2,
+      "length": 9,
+      "nest": 1,
+      "lineno": 243
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "generate_html_report.smell_badge",
+      "cc": 1,
+      "length": 4,
+      "nest": 0,
+      "lineno": 253
+    },
+    {
+      "file": "cyclocalc\\report\\visualizer.py",
+      "name": "plot_cc_distribution",
+      "cc": 5,
+      "length": 24,
+      "nest": 4,
+      "lineno": 6
+    },
+    {
+      "file": "cyclocalc\\report\\visualizer.py",
+      "name": "plot_len_distribution",
+      "cc": 5,
+      "length": 24,
+      "nest": 4,
+      "lineno": 32
+    },
+    {
+      "file": "cyclocalc\\report\\visualizer.py",
+      "name": "plot_file_heatmap",
+      "cc": 4,
+      "length": 70,
+      "nest": 1,
+      "lineno": 59
+    }
+  ],
+  "files": [
+    {
+      "file": "cyclocalc\\cli.py",
+      "comment_ratio": 0.010309278350515464,
+      "docstring_coverage": 0.07692307692307693,
+      "long_line_ratio": 0.044673539518900345,
+      "naming_issue_ratio": 0.041666666666666664,
+      "unused_imports_count": 0,
+      "unused_imports": []
+    },
+    {
+      "file": "cyclocalc\\__init__.py",
+      "comment_ratio": 0.0,
+      "docstring_coverage": 0.0,
+      "long_line_ratio": 0.2,
+      "naming_issue_ratio": 0.0,
+      "unused_imports_count": 0,
+      "unused_imports": []
+    },
+    {
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "comment_ratio": 0.05042016806722689,
+      "docstring_coverage": 0.0,
+      "long_line_ratio": 0.029411764705882353,
+      "naming_issue_ratio": 0.025,
+      "unused_imports_count": 0,
+      "unused_imports": []
+    },
+    {
+      "file": "cyclocalc\\report\\report_generator.py",
+      "comment_ratio": 0.007722007722007722,
+      "docstring_coverage": 0.0,
+      "long_line_ratio": 0.06177606177606178,
+      "naming_issue_ratio": 0.12987012987012986,
+      "unused_imports_count": 1,
+      "unused_imports": [
+        "annotations"
+      ]
+    },
+    {
+      "file": "cyclocalc\\report\\visualizer.py",
+      "comment_ratio": 0.03125,
+      "docstring_coverage": 0.25,
+      "long_line_ratio": 0.046875,
+      "naming_issue_ratio": 0.0,
+      "unused_imports_count": 0,
+      "unused_imports": []
+    },
+    {
+      "file": "cyclocalc\\report\\__init__.py",
+      "comment_ratio": 0.0,
+      "docstring_coverage": 0.0,
+      "long_line_ratio": 0.0,
+      "naming_issue_ratio": 0.0,
+      "unused_imports_count": 0,
+      "unused_imports": []
+    }
+  ],
+  "smells": [
+    {
+      "type": "中高复杂度函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\cli.py",
+      "name": "get_python_files",
+      "detail": "CC=7"
+    },
+    {
+      "type": "较深嵌套函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\cli.py",
+      "name": "get_python_files",
+      "detail": "NEST=3"
+    },
+    {
+      "type": "中高复杂度函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\cli.py",
+      "name": "generate_results",
+      "detail": "CC=7"
+    },
+    {
+      "type": "超长函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\cli.py",
+      "name": "generate_results",
+      "detail": "LEN=66"
+    },
+    {
+      "type": "较深嵌套函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\cli.py",
+      "name": "generate_results",
+      "detail": "NEST=4"
+    },
+    {
+      "type": "中高复杂度函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\cli.py",
+      "name": "output_results",
+      "detail": "CC=8"
+    },
+    {
+      "type": "较深嵌套函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\cli.py",
+      "name": "output_results",
+      "detail": "NEST=3"
+    },
+    {
+      "type": "超长函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\cli.py",
+      "name": "analyze",
+      "detail": "LEN=67"
+    },
+    {
+      "type": "较深嵌套函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_cc",
+      "detail": "NEST=3"
+    },
+    {
+      "type": "中高复杂度函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "check_func_and_class_names",
+      "detail": "CC=8"
+    },
+    {
+      "type": "深嵌套函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "check_func_and_class_names",
+      "detail": "NEST=5"
+    },
+    {
+      "type": "中高复杂度函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "check_arg_names",
+      "detail": "CC=9"
+    },
+    {
+      "type": "较深嵌套函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "check_arg_names",
+      "detail": "NEST=4"
+    },
+    {
+      "type": "中高复杂度函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "check_var_names",
+      "detail": "CC=9"
+    },
+    {
+      "type": "高复杂度函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_unused_imports",
+      "detail": "CC=11"
+    },
+    {
+      "type": "深嵌套函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "calc_unused_imports",
+      "detail": "NEST=5"
+    },
+    {
+      "type": "高复杂度函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "risk_level",
+      "detail": "CC=12"
+    },
+    {
+      "type": "高复杂度函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "detect_smells",
+      "detail": "CC=14"
+    },
+    {
+      "type": "较长函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "detect_smells",
+      "detail": "LEN=49"
+    },
+    {
+      "type": "较深嵌套函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "detect_smells",
+      "detail": "NEST=3"
+    },
+    {
+      "type": "中高复杂度函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "build_file_risk_ranking",
+      "detail": "CC=7"
+    },
+    {
+      "type": "较长函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "build_file_risk_ranking",
+      "detail": "LEN=52"
+    },
+    {
+      "type": "超长函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "generate_html_report",
+      "detail": "LEN=298"
+    },
+    {
+      "type": "较深嵌套函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\report\\visualizer.py",
+      "name": "plot_cc_distribution",
+      "detail": "NEST=4"
+    },
+    {
+      "type": "较深嵌套函数",
+      "level": "medium",
+      "target": "function",
+      "file": "cyclocalc\\report\\visualizer.py",
+      "name": "plot_len_distribution",
+      "detail": "NEST=4"
+    },
+    {
+      "type": "超长函数",
+      "level": "high",
+      "target": "function",
+      "file": "cyclocalc\\report\\visualizer.py",
+      "name": "plot_file_heatmap",
+      "detail": "LEN=70"
+    },
+    {
+      "type": "Docstring覆盖偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\cli.py",
+      "name": "",
+      "detail": "DOC=0.08"
+    },
+    {
+      "type": "注释率偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\cli.py",
+      "name": "",
+      "detail": "COMMENT=0.01"
+    },
+    {
+      "type": "Docstring覆盖偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\__init__.py",
+      "name": "",
+      "detail": "DOC=0.00"
+    },
+    {
+      "type": "注释率偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\__init__.py",
+      "name": "",
+      "detail": "COMMENT=0.00"
+    },
+    {
+      "type": "长行比例偏高",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\__init__.py",
+      "name": "",
+      "detail": "LONG_LINE=0.20"
+    },
+    {
+      "type": "Docstring覆盖偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\analyzer\\metrics.py",
+      "name": "",
+      "detail": "DOC=0.00"
+    },
+    {
+      "type": "Docstring覆盖偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "",
+      "detail": "DOC=0.00"
+    },
+    {
+      "type": "注释率偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "",
+      "detail": "COMMENT=0.01"
+    },
+    {
+      "type": "命名问题偏多",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "",
+      "detail": "NAMING=0.13"
+    },
+    {
+      "type": "未使用导入(Imports)",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\report\\report_generator.py",
+      "name": "",
+      "detail": "unused=annotations"
+    },
+    {
+      "type": "Docstring覆盖偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\report\\visualizer.py",
+      "name": "",
+      "detail": "DOC=0.25"
+    },
+    {
+      "type": "Docstring覆盖偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\report\\__init__.py",
+      "name": "",
+      "detail": "DOC=0.00"
+    },
+    {
+      "type": "注释率偏低",
+      "level": "medium",
+      "target": "file",
+      "file": "cyclocalc\\report\\__init__.py",
+      "name": "",
+      "detail": "COMMENT=0.00"
+    }
+  ],
+  "config": {
+    "threshold": 5,
+    "ignore": []
+  }
+}
