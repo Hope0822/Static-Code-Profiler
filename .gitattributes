@@ -1,0 +1,7 @@
+# Mark generated outputs so GitHub Linguist ignores them
+output/** linguist-generated=true
+output/** linguist-vendored=true
+
+# If you放了其它报告/图表目录，也一起忽略
+**/charts/** linguist-generated=true
+**/charts/** linguist-vendored=true
