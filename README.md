@@ -29,6 +29,9 @@ It profiles code complexity and quality risks using **multiple metrics**, visual
   - **Expandable source preview** for top risky functions
 - **Engineering-ready CLI**
   - Threshold filter, ignore paths, JSON export, plots & report output
+- **Windows executables**
+  - Command-line `cyclocalc.exe`
+  - Optional GUI launcher for non-CLI users
 
 ---
 
@@ -114,6 +117,7 @@ cyclocalc [PATHS...] [OPTIONS]
 | `--json` | Export structured JSON results |
 | `--ignore` | Ignore paths containing substring (repeatable) |
 | `--top` | Top N risky functions shown in HTML |
+| `-o, --output` | Save plain-text CLI output to a file |
 
 ---
 
@@ -134,16 +138,41 @@ output/
 ### Report Screenshots
 
 - **CC Distribution**
-  
+
   ![cc](output/charts/cc_distribution.png)
 
 - **LEN Distribution**
-  
+
   ![len](output/charts/len_distribution.png)
 
 - **File-level Risk Heatmap**
-  
+
   ![heatmap](output/charts/file_heatmap.png)
+
+---
+
+## 🖥️ Windows Executables
+
+If you are on Windows and prefer not to install a Python environment, download the executables from the **GitHub Releases** page.
+
+Release package contains:
+
+```
+CycloCalc_release/
+  cyclocalc.exe        # CLI executable
+  CycloCalc_GUI.exe    # Optional GUI launcher
+```
+
+### Using `cyclocalc.exe` (CLI)
+
+```bat
+cyclocalc.exe <PATHS...> -t 10 --plots --html --json report.json
+```
+
+### Using `CycloCalc_GUI.exe` (GUI)
+
+Double-click `CycloCalc_GUI.exe`, choose target paths and options, then click **Run**.
+Make sure `CycloCalc_GUI.exe` and `cyclocalc.exe` stay in the **same folder**.
 
 ---
 
@@ -158,6 +187,8 @@ cyclocalc/
  │   └─ report_generator.py   # HTML rendering + smells + source preview
  ├─ cli.py                    # Typer CLI entry
  └─ __init__.py
+run_cli.py                    # wrapper entry for packaging/CLI execution
+packaging/                    # optional: GUI + packaging helpers
 ```
 
 ---
@@ -186,10 +217,24 @@ Run locally:
 poetry run cyclocalc cyclocalc/ -t 5
 ```
 
-Run tests (if added later):
+Run tests:
 
 ```bash
 poetry run pytest
+```
+
+### Packaging (for developers)
+
+Build CLI exe:
+
+```bat
+poetry run pyinstaller -F -n cyclocalc --hidden-import typer run_cli.py
+```
+
+Build GUI exe:
+
+```bat
+poetry run pyinstaller -F -w -n CycloCalc_GUI packaging/gui_cyclocalc.py
 ```
 
 ---

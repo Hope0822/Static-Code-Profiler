@@ -3,76 +3,79 @@
 
 # SCP（Static Code Profiler）
 
-**SCP** 是一个基于 AST 的 Python 静态代码分析工具。  
-它能够对 Python 项目进行**多指标复杂度/质量风险剖析**，并生成图表和**交互式 HTML 报告**。
+**SCP** 是一个基于 Python `ast` 的静态代码分析工具，面向 Python 项目。  
+它会使用**多种指标**对代码复杂度与质量风险进行画像，生成可视化结果，并输出**交互式 HTML 报告**。
 
-> SCP = **Static Code Profiler（静态代码剖析器）**  
-> 一个轻量但实用的 Python 多指标风险分析工具。
+> SCP = **Static Code Profiler**  
+> 一个轻量但实用的多指标 Python 源码风险分析器。
 
 ---
 
-## ✨ 项目亮点
+## ✨ 亮点
 
-- **纯静态分析**：基于 Python 内置 `ast`，不需要运行目标代码
-- **多指标剖析**
+- **纯静态分析**：基于 Python `ast`，无需运行代码
+- **多指标 Profiling**
   - 函数级：**CC / LEN / NEST**
-  - 文件级：**注释率 / Docstring 覆盖 / 长行比例 / 命名问题比例 / 未使用导入**
-- **风险分级 + 坏味道（Smells）**：Low / Medium / High
+  - 文件级：**注释率 / Docstring 覆盖率 / 超长行比例 / 命名问题 / 未使用导入**
+- **风险分级 + Smells 提示**（低 / 中 / 高）
 - **可视化分析**
   - CC 分布图  
   - LEN 分布图  
-  - **文件级风险热力图**
+  - **文件风险热力图**
 - **交互式 HTML 报告**
-  - Top 风险文件 & 风险函数排行  
+  - Top 高风险文件与函数  
   - Smells 列表  
-  - 图表嵌入  
-  - **Top 风险函数源码折叠预览**
+  - 内嵌图表  
+  - **Top 函数源码可展开预览**
 - **工程化 CLI**
-  - 阈值过滤、ignore 过滤、JSON 导出、图表/HTML 输出
+  - 阈值过滤、忽略路径、JSON 导出、图表/报告输出
+- **Windows 可执行程序**
+  - 命令行版 `cyclocalc.exe`
+  - 可选 GUI 启动器（适合不熟悉命令行的用户）
 
 ---
 
-## 📌 SCP 统计哪些指标？
+## 📌 SCP 会测量什么
 
 ### 函数级指标
 
-| 指标 | 含义 | AST 统计口径 |
+| 指标 | 含义 | 计算方式（AST） |
 |---|---|---|
-| **CC**（圈复杂度） | 分支路径复杂度，越高越易出错 | 决策节点（`if/for/while/try/except/with/...`）+ 逻辑运算 |
-| **LEN**（函数长度） | 函数行数，越长越难维护 | `end_lineno - lineno + 1` |
-| **NEST**（最大嵌套深度） | 控制结构嵌套层数 | 对 `If/For/While/Try/With/...` DFS 求最大深度 |
+| **CC**（圈复杂度） | 分支/路径复杂度，值越高越易出错 | 统计决策节点（`if/for/while/try/except/with/...`）+ 逻辑运算 |
+| **LEN**（长度） | 函数 LOC，越长越难维护 | `end_lineno - lineno + 1` |
+| **NEST**（最大嵌套深度） | 控制结构嵌套层级 | 对 `If/For/While/Try/With/...` 做 DFS |
 
 ### 文件级指标
 
 | 指标 | 含义 |
 |---|---|
-| **COMMENT_RATIO** | 注释行占比 |
-| **DOCSTRING_COV** | 模块/类/函数 docstring 覆盖率 |
-| **LONG_LINE_RATIO** | 超过 79 字符长行比例（PEP8） |
-| **NAMING_ISSUE_RATIO** | snake_case / CapWords 命名违规比例 |
-| **UNUSED_IMPORTS** | 未被引用的导入（语义冗余风险） |
+| **COMMENT_RATIO** | 注释行比例 |
+| **DOCSTRING_COV** | 模块/类/函数 Docstring 覆盖率 |
+| **LONG_LINE_RATIO** | 超过 79 字符行比例（PEP8） |
+| **NAMING_ISSUE_RATIO** | 命名不规范比例（snake_case / CapWords） |
+| **UNUSED_IMPORTS** | 未被引用的导入（潜在语义风险） |
 
 ---
 
 ## 🧠 风险等级与 Smells
 
-SCP 将多指标映射为风险等级并输出坏味道：
+SCP 会将多指标映射为**风险等级**并生成 “smells”：
 
-- **High 风险**
+- **高风险**
   - `CC ≥ 10`  
   - `LEN ≥ 60`
   - `NEST ≥ 5`
 
-- **Medium 风险**
+- **中风险**
   - `CC ≥ 7`
   - `LEN ≥ 40`
   - `NEST ≥ 3`
-  - Docstring/注释率偏低、长行比例偏高、命名问题偏多、未使用导入
+  - Docstring/注释不足、超长行、命名问题、未使用导入等
 
-- **Low 风险**
-  - 正常范围内
+- **低风险**
+  - 其余情况
 
-风险信息会在 CLI 输出与 HTML 报告中展示。
+Smells 会在 CLI 输出和 HTML 报告中展示，便于快速定位问题。
 
 ---
 
@@ -87,7 +90,7 @@ poetry install
 ### 2）运行分析
 
 ```bash
-poetry run cyclocalc <项目路径或文件> -t 5 --plots --html
+poetry run cyclocalc <项目或文件路径> -t 5 --plots --html
 ```
 
 示例：
@@ -98,7 +101,7 @@ poetry run cyclocalc cyclocalc/ -t 5 --plots --html --json output/result.json
 
 ---
 
-## 🖥️ CLI 参数
+## 🖥️ 命令行参数（CLI）
 
 ```bash
 cyclocalc [PATHS...] [OPTIONS]
@@ -106,20 +109,21 @@ cyclocalc [PATHS...] [OPTIONS]
 
 | 参数 | 说明 |
 |---|---|
-| `-t, --threshold` | CC 阈值过滤（只显示 ≥ 阈值的函数） |
+| `-t, --threshold` | 只展示 CC ≥ threshold 的函数 |
 | `--plots` | 生成图表（CC/LEN 分布 + 热力图） |
-| `--charts-dir` | 图表输出目录 *(默认 output/charts)* |
+| `--charts-dir` | 图表输出目录（默认 `output/charts`） |
 | `--html` | 生成交互式 HTML 报告 |
-| `--html-path` | HTML 报告路径 *(默认 output/report.html)* |
-| `--json` | 导出结构化 JSON 结果 |
-| `--ignore` | 忽略包含指定子串的路径（可重复） |
-| `--top` | HTML 中显示 Top N 风险函数 |
+| `--html-path` | HTML 输出路径（默认 `output/report.html`） |
+| `--json` | 导出 JSON 结构化结果 |
+| `--ignore` | 忽略包含某子串的文件/目录（可重复） |
+| `--top` | HTML 中展示 Top N 高风险函数 |
+| `-o, --output` | 将 CLI 文本输出保存到文件 |
 
 ---
 
-## 📊 输出说明
+## 📊 输出内容
 
-当使用 `--plots --html --json` 后，输出结构如下：
+当同时使用 `--plots --html --json` 时，会生成：
 
 ```
 output/
@@ -131,19 +135,44 @@ output/
  └─ result.json
 ```
 
-### 报告截图
+### 报告截图（示例）
 
-- **CC 分布图**
-  
+- **CC 分布**
+
   ![cc](output/charts/cc_distribution.png)
 
-- **LEN 分布图**
-  
+- **LEN 分布**
+
   ![len](output/charts/len_distribution.png)
 
-- **文件级风险热力图**
-  
+- **文件风险热力图**
+
   ![heatmap](output/charts/file_heatmap.png)
+
+---
+
+## 🖥️ Windows 可执行程序（exe）
+
+Windows 用户如果不想安装 Python 环境，可在 **GitHub Releases** 页面下载可执行包。
+
+发布包包含：
+
+```
+CycloCalc_release/
+  cyclocalc.exe        # 命令行版
+  CycloCalc_GUI.exe    # 可选 GUI 启动器
+```
+
+### 使用 cyclocalc.exe（命令行）
+
+```bat
+cyclocalc.exe <PATHS...> -t 10 --plots --html --json report.json
+```
+
+### 使用 CycloCalc_GUI.exe（图形界面）
+
+双击 `CycloCalc_GUI.exe`，选择要分析的路径与参数，点击 **Run** 即可。
+请确保 `CycloCalc_GUI.exe` 与 `cyclocalc.exe` **放在同一目录下**。
 
 ---
 
@@ -152,33 +181,35 @@ output/
 ```
 cyclocalc/
  ├─ analyzer/
- │   └─ metrics.py            # 多指标提取（AST 静态分析）
+ │   └─ metrics.py            # AST 指标提取
  ├─ report/
- │   ├─ visualizer.py         # 图表+热力图（matplotlib）
- │   └─ report_generator.py   # HTML 报告渲染 + smells + 源码预览
- ├─ cli.py                    # Typer 命令行入口
+ │   ├─ visualizer.py         # 图表/热力图（matplotlib）
+ │   └─ report_generator.py   # HTML 生成 + smells + 源码预览
+ ├─ cli.py                    # Typer CLI 入口
  └─ __init__.py
+run_cli.py                    # 打包/CLI 执行入口包装
+packaging/                    # 可选：GUI 与打包辅助脚本
 ```
 
 ---
 
-## 🔍 为什么用 Python？（也体现 SCP 的价值）
+## 🔍 为什么用 Python（以及为什么做 SCP）
 
-本项目充分体现 Python 在静态分析与工具开发中的优势：
+本项目展示了 Python 在**静态分析与工程工具链**上的优势：
 
-- `ast` 支持编译器前端式语法解析  
-- `dataclasses` + 数据结构 支撑指标建模  
-- `typer` 快速构建现代 CLI  
-- `matplotlib` 实现科学可视化  
-- 标准库 `json/html/pathlib` 输出完整报告  
+- `ast`：类编译前端的语法树解析  
+- `dataclasses`：指标建模与结构化数据  
+- `typer`：现代化 CLI 工程  
+- `matplotlib`：科学可视化  
+- 内置 `json/html/pathlib`：实用的报告与数据输出
 
-最终形成完整闭环：
+SCP 形成完整流程：
 
-**分析 → 评估 → 可视化 → 报告 → 定位风险**
+**analyze → evaluate → visualize → report → locate risk**
 
 ---
 
-## 🛠️ 开发与调试
+## 🛠️ 开发与测试
 
 本地运行：
 
@@ -186,26 +217,40 @@ cyclocalc/
 poetry run cyclocalc cyclocalc/ -t 5
 ```
 
-（如果后续补充测试）运行：
+运行测试：
 
 ```bash
 poetry run pytest
 ```
 
+### 打包说明（开发者）
+
+打包命令行 exe：
+
+```bat
+poetry run pyinstaller -F -n cyclocalc --hidden-import typer run_cli.py
+```
+
+打包 GUI exe：
+
+```bat
+poetry run pyinstaller -F -w -n CycloCalc_GUI packaging/gui_cyclocalc.py
+```
+
 ---
 
-## 🧭 可选后续扩展
+## 🧭 Roadmap（可选）
 
-- 增加更多语义 smells（如 broad except、可变默认参数）
-- 历史对比分析（`--compare old.json new.json`）
-- HTML 表格支持排序/搜索过滤
+- 更多语义 smells（如 broad except、可变默认参数等）
+- 趋势对比（`--compare old.json new.json`）
+- HTML 中可交互排序/筛选
 
 ---
 
 ## 🙏 致谢
 
-- 基于开源项目 **CycloCalc**（Typer CLI + CC 统计）进行扩展  
-- 我们在其基础上新增多指标评估、风险分级、可视化与交互报告
+- 基础脚手架来自 **CycloCalc**（Typer CLI + CC analyzer）
+- 扩展为 SCP：增加多指标 Profiling、可视化与交互式报告
 
 ---
 
